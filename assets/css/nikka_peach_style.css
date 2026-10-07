@@ -1,0 +1,503 @@
+/* MAIN CONTAINER */
+.door-container{
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    height: 100vh;
+    height: 100svh;
+    perspective: 1800px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #FEF4E9;
+    isolation: isolate;
+}
+
+/* LEFT + RIGHT DOORS */
+.door{
+    position: absolute;
+    top: 0;
+    width: 50.2%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+
+    transition: transform 1.8s ease-in-out;
+
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* LEFT */
+.left-door{
+    left: 0;
+    transform-origin: left center;
+}
+
+/* RIGHT */
+.right-door{
+    right: 0;
+    transform-origin: right center;
+}
+
+/* DOOR IMAGE */
+.door img{
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* LEFT IMAGE */
+.left-door img{
+    left: 0;
+}
+
+/* RIGHT IMAGE */
+.right-door img{
+    right: 0;
+}
+
+/* INSIDE CONTENT */
+.inside-content{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.inside-content img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* OPEN EFFECT */
+.door-container.open .left-door{
+    transform: rotateY(-115deg);
+}
+
+.door-container.open .right-door{
+    transform: rotateY(115deg);
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+    .door-container{
+        min-height: 100dvh;
+        height: 100dvh;
+    }
+
+    .door{
+        transition: transform 1.4s ease-in-out;
+    }
+
+} 
+
+/*=========================*/
+
+.top-right {
+    position: relative;
+    width: 55% !important;
+    background-size: contain;
+    margin-left: 44%;
+}
+
+.bottom-left {
+    position: relative;
+    width: 55% !important;
+    background-size: contain;
+    margin-right: 46%;
+}
+
+.divsectwo {
+    background-color:white !important;
+}
+
+.aos-init,
+.aos-animate {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+ 
+
+.section3-peach-cls {
+    background-image: url('../../image/nikkah_images/section_three_back_peach.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    width:100%;
+    min-height: 100vh;
+    height: auto;
+    position:relative;
+    overflow:hidden;
+}
+
+.peach-content{
+    padding-top: 22vh !important;
+    padding-bottom: 20%;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.gmap-btn{
+    margin-top:20px;
+    border:none;
+    border-radius:100px;
+    padding:22px 45px;
+    background:white;
+    color:#111;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.gmap-btn:hover{
+    transform:scale(1.05);
+}
+
+.gmap-text{
+    font-size:4rem;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+/* Mobile Responsive */
+@media(max-width:768px){
+
+    .gmap-btn{
+        padding:18px 35px;
+    }
+
+    .gmap-text{
+        font-size:7vw;
+    }
+}
+
+/* COUNTDOWN SECTION */
+
+.countdown-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:30px;
+    padding:10px;
+}
+
+.countdown-box{
+    width:22%;
+    min-width:140px;
+    padding:30px 15px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.12),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+
+    transition:0.4s ease;
+}
+
+.countdown-box:hover{
+    transform:translateY(-8px) scale(1.03);
+}
+
+.count-number{
+    font-size:5rem;
+    font-weight:700;
+    color:#5c684c;
+    line-height:1;
+    padding-bottom:15px;
+    font-family:'Cinzel', serif;
+}
+
+.count-label{
+    font-size:2rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#333;
+    font-weight:600;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .countdown-wrapper{
+        gap:12px;
+    }
+
+    .countdown-box{
+        width:45%;
+        min-width:auto;
+        padding:25px 10px;
+    }
+
+    .count-number{
+        font-size:10vw;
+    }
+
+    .count-label{
+        font-size:3.5vw;
+    }
+}
+.peach-decor.overlay {
+    top: 80px;
+    bottom: 80px;
+    left: 80px;
+    border: 15px solid #E6D5BB;
+    right: 80px;
+    border-radius: 19%;
+    z-index: 0;
+    opacity: 0.65 !important;
+    background: white !important;
+    
+    
+    border: 0px solid #ededed;
+    position: absolute; 
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 1px 6px #777;
+    border-radius: 220px 220px 0px 0px;
+} 
+
+.section3_climber-top-right {
+  position: relative;
+  top: 0px;
+  right: 0;
+  left:56%;
+  width: 45%;
+}
+
+.section3_climber-top-left {
+  position: absolute;
+  top: 0px;
+  left: 0%;
+  width: 45%;
+  transform: scaleX(-1);
+}
+
+.section3_climber-peach-right {
+  position: relative;
+  bottom: 0px;
+  right: 0;
+  left:56%;
+  width: 45%;
+}
+
+.section3_climber-peach-left {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 45%;
+}
+
+.top-peach-decor {
+    position: absolute !important;
+}
+
+/*#popupclose{*/
+/*    pointer-events:none;*/
+/*}*/
+
+.left-door{
+    position: relative;
+}
+
+.left-door > img{
+    position: relative;
+    z-index: 1;
+}
+
+.left-door .aos_obj{
+    z-index: 5;
+}
+
+.flower-container{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.flower{
+    position: absolute;
+    top: -60px;
+    width: 30px;
+    height: 30px;
+
+    background-image: url('../../image/nikkah_images/flower_fall.png'); /* your flower image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: 0.9;
+
+    animation: flowerFall linear forwards;
+}
+
+/* STRAIGHT FALL */
+@keyframes flowerFall{
+    from{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to{
+        transform: translateY(110vh);
+        opacity: 1;
+    }
+}
+
+.ptext p {
+    color:white !important;
+}
+
+.form-check-input{
+    width: 26px;
+    height: 26px;
+    border: 2px solid #d6c7b5;
+    background-color: #fff;
+    box-shadow: none !important;
+}
+
+.form-check-input:checked{
+    background-color: #cbb8a3;
+    border-color: #cbb8a3;
+}
+
+#section-three{
+    min-height: 100svh;
+    height: auto !important;
+    overflow: hidden;
+    padding: 120px 0;
+    position: relative;
+}
+
+@media(max-width:768px){
+
+    .peach-content{
+        padding-top: 180px !important;
+        padding-bottom: 180px !important;
+    }
+
+    #section-three [style*="bottom:600px"]{
+        bottom: 72% !important;
+    }
+
+    #section-three [style*="bottom:900px"]{
+        bottom: 82% !important;
+    }
+
+    #section-three .playball-regular{
+        font-size: 12vw !important;
+    }
+
+    #section-three .font0,
+    #section-three .font3{
+        font-size: 5vw !important;
+    }
+
+    #section-three .aos-init img{
+        max-width: 120px !important;
+        height: auto;
+    }
+
+    #section-three .aos-init[style*="border-radius:220px"]{
+        border-radius: 60px !important;
+        top: 30px !important;
+        bottom: 30px !important;
+    }
+}
+
+#section-footer .footer-content{
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+.tap-contain {
+    bottom: clamp(150px, 24vh, 240px) !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+.swipe-text {
+    font-size:3vw;
+    font-family: sans-serif;
+}
+
+#section-one{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    background: #fef4e9;
+}
+
+#section-one .nameaos_obj{
+    top: 39% !important;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#section-one #block_white{
+    bottom: 0 !important;
+}
+
+@media (max-width: 768px){
+    #section-one{
+        min-height: 100dvh;
+    }
+
+    #section-one .nameaos_obj{
+        top: 37% !important;
+    }
+
+    #section-one .title-main{
+        font-size: clamp(3rem, 14vw, 5.8rem) !important;
+        padding-top: 12px !important;
+        padding-bottom: 24px !important;
+        line-height: 0.95;
+    }
+
+    #section-one .title-small-peach{
+        font-size: clamp(1rem, 4.2vw, 1.35rem) !important;
+    }
+
+    .tap-contain{
+        bottom: clamp(130px, 18vh, 190px) !important;
+    }
+
+    .swipe-text{
+        font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+    }
+
+    #section-one #top_arch{
+        height: 28% !important;
+    }
+
+    #section-one #bottom_arch{
+        height: 30% !important;
+    }
+}
