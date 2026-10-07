@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Rose Petal Heart Opening Animation Styles
+   Matches the warm peach, ivory, and champagne aesthetic of the invitation.
+   ========================================================================== */
+
+#rose-petal-heart-intro {
+    --rose-petal-color: #C21E56;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #FFFDFB 62%, #FAF3EE 100%);
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+    isolation: isolate;
+}
+
+#rose-petal-heart-intro.intro-fading {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#rose-petal-heart-intro.intro-hidden {
+    display: none !important;
+}
+
+/* Vignette and ambient warm glow overlay */
+.rose-ambient-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 40%, rgba(168, 120, 85, 0.15) 100%);
+    box-shadow: inset 0 0 100px rgba(184, 137, 103, 0.22);
+    z-index: 1;
+}
+
+/* Background subtle decorative arches / rings */
+.rose-ambient-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(85vw, 540px);
+    height: min(85vw, 540px);
+    border-radius: 50%;
+    border: 1px dashed rgba(180, 134, 100, 0.18);
+    pointer-events: none;
+    animation: roseRingFloat 16s linear infinite;
+    z-index: 1;
+}
+
+@keyframes roseRingFloat {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* The High-DPI Canvas */
+#rose-petal-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Names appear inside the completed petal heart, before the invitation opens. */
+.rose-heart-names {
+    position: absolute;
+    /* JavaScript sets the exact mathematical heart center. */
+    top: var(--rose-heart-center-y, 44%);
+    left: 50%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    pointer-events: none;
+    color: var(--rose-petal-color);
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(255, 240, 238, 0.95);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.rose-heart-names.is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.rose-heart-name {
+    font-family: 'Great Vibes', 'Sacramento', cursive;
+    font-size: clamp(2.4rem, 6.8vw, 5.2rem);
+    line-height: 0.9;
+    white-space: nowrap;
+}
+
+.rose-heart-ampersand {
+    margin: 0.2em 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
+    line-height: 0.8;
+}
+
+.rose-heart-copy {
+    position: absolute;
+    /* JavaScript places the copy below the heart with a measured gap. */
+    top: var(--rose-heart-copy-top, 84%);
+    left: 50%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(76vw, 360px);
+    transform: translate(-50%, 0) scale(0.8);
+    opacity: 0;
+    color: var(--rose-petal-color);
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(255, 240, 238, 0.95);
+    transition: opacity 0.8s ease 0.12s, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s;
+}
+
+@media (min-width: 768px) {
+    .rose-heart-copy {
+        width: min(42vw, 430px);
+    }
+}
+
+@media (max-width: 767px) {
+    .rose-heart-names {
+        font-size: 0.96em;
+    }
+
+    .rose-heart-copy {
+        width: min(76vw, 300px);
+    }
+}
+
+.rose-heart-copy.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+}
+
+.rose-heart-copy-kicker {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.68rem, 1.7vw, 0.95rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.rose-heart-copy-text {
+    margin-top: 0.48rem;
+    font-family: 'Great Vibes', 'Sacramento', cursive;
+    font-size: clamp(1.85rem, 4.8vw, 3rem);
+    line-height: 1;
+}
+
+.rose-heart-project {
+    margin-top: 0.72rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.85rem, 2vw, 1.15rem);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Interactive Hint Text */
+.rose-intro-prompt {
+    position: absolute;
+    bottom: max(6vh, 32px);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 4;
+    pointer-events: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.rose-intro-prompt.prompt-fade-out {
+    opacity: 0;
+    transform: translate(-50%, 15px);
+}
+
+.rose-intro-prompt.ready-to-open {
+    opacity: 1;
+    transform: translateX(-50%);
+}
+
+.rose-intro-prompt.ready-to-open .rose-prompt-script::after {
+    content: 'Our love story';
+    font-size: 0;
+}
+
+.rose-intro-prompt.ready-to-open .rose-prompt-script {
+    font-size: 0;
+}
+
+.rose-intro-prompt.ready-to-open .rose-prompt-script::after {
+    font-size: clamp(2rem, 5.5vw, 3.2rem);
+}
+
+.rose-intro-prompt.ready-to-open .rose-prompt-sub {
+    cursor: pointer;
+}
+
+.rose-intro-prompt.ready-to-open .rose-prompt-sub::after {
+    content: 'Tap to open invitation';
+    font-size: clamp(0.78rem, 2vw, 0.95rem);
+}
+
+.rose-intro-prompt.ready-to-open .rose-prompt-sub {
+    font-size: 0;
+}
+
+.rose-intro-prompt.ready-to-open .rose-prompt-sub svg {
+    display: none;
+}
+
+.rose-prompt-script {
+    display: block;
+    font-family: 'Great Vibes', 'Sacramento', cursive;
+    font-size: clamp(2rem, 5.5vw, 3.2rem);
+    color: #7d5635;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(125, 86, 53, 0.15);
+    animation: rosePromptBreathe 2.8s ease-in-out infinite;
+}
+
+.rose-prompt-sub {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    font-size: clamp(0.78rem, 2vw, 0.95rem);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #8c6848;
+    background: rgba(255, 248, 241, 0.7);
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(140, 104, 72, 0.2);
+    box-shadow: 0 4px 14px rgba(140, 104, 72, 0.08);
+}
+
+.rose-prompt-sub svg {
+    width: 14px;
+    height: 14px;
+    fill: #b35d54;
+    animation: roseHeartbeatIcon 1.4s ease-in-out infinite;
+}
+
+@keyframes rosePromptBreathe {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.92;
+    }
+    50% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+@keyframes roseHeartbeatIcon {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.25); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.18); }
+}
+
+/* Top Skip / Accessibility Button */
+.rose-intro-skip {
+    position: absolute;
+    top: max(20px, env(safe-area-inset-top));
+    right: max(20px, env(safe-area-inset-right));
+    z-index: 5;
+    background: rgba(255, 250, 244, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(125, 86, 53, 0.22);
+    border-radius: 30px;
+    color: #7d5635;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    padding: 6px 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(110, 79, 54, 0.08);
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.rose-intro-skip:hover,
+.rose-intro-skip:focus-visible {
+    background: #FFFDF9;
+    color: #5c3c20;
+    border-color: rgba(125, 86, 53, 0.45);
+    box-shadow: 0 6px 18px rgba(110, 79, 54, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    #rose-petal-heart-intro {
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .rose-prompt-script,
+    .rose-prompt-sub svg,
+    .rose-ambient-ring,
+    .rose-heart-names,
+    .rose-heart-copy {
+        animation: none !important;
+    }
+}
